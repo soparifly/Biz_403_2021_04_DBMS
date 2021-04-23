@@ -35,7 +35,7 @@ values('00001','홍길동','국어국문','3');
 SELECT * FROM tbl_student;
 
 INSERT INTO tbl_student(st_num, st_dept, st_grade)
-VALUES ('00001','홍길동','컴퓨터공학','2')
+VALUES ('00001','홍길동','컴퓨터공학','2');
 
 SELECT * FROM tbl_student;
 
@@ -101,10 +101,9 @@ SELECT * FROM tbl_student;
 
 DROP table tbl_student;
 --DBMS에서는 기본키 제약조건을 설정하는 키워드가 별도로있다
-CREATE TABLE tbl_student(
-
 --primary key : unique + not null + 기타 조건 + INDEX 자동생성(검색을빨리하기위한설정) TableTAP에서 SQL으로 자세한 명령어, INDEX확인가능
 -- 매우 강력한, 가장 우선순위가 높은 제약조건이다.
+CREATE TABLE tbl_student(
 st_num CHAR(5) Primary key,
 st_name nVARCHAR2(20) NOT NULL,
 st_dept NVARCHAR2(10),
