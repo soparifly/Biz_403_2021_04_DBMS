@@ -1,7 +1,8 @@
-# github 업로드 하지 않을 파일정보 등록하는곳
+# github업로드하지 않을 파일 정보 등록하는 곳
 
+# java 컴파일된 BIN 파일들
 *.class
-#java 컴파일된 BIN 파일들
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -12,6 +13,11 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+
+# intellij
+/.idea/
+/spring.iml
 
 .metadata
 bin/
@@ -66,19 +72,6 @@ RemoteSystemsTempFiles/
 
 *.class
 target/
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-/.idea/
-/spring.iml
 
 # Logs
 logs
