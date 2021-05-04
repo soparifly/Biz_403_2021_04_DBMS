@@ -1,0 +1,15 @@
+--여기는 관리자 접속
+
+
+--KschoolDB, KSchool.dbf
+
+CREATE TABLESPACE KschoolDB
+DATAFILE 'C:/oraclexe/data/kschool.dbf'
+SIZE 1M AUTOEXTEND ON NEXT 1K;
+
+
+--KSCUSER, KSCUSER, KSchoolDB
+CREATE USER KSCUSER IDENTIFIED BY KSCUSER
+DEFAULT TABLESPACE kschooldb;
+
+GRANT TO kscuser;
