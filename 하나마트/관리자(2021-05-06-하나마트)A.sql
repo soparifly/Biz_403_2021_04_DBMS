@@ -1,0 +1,9 @@
+--관리자
+
+CREATE TABLESPACE IolistDB;
+DATAFILE  'C:/oraclexe/data/iolist.dbf'
+SIZE 1M AUTOEXTEND ON NEXT 
+
+
+CREATE USER iouser IDENTIFIED BY iouser
+DEFAULT TABLESPACE lolistDB;

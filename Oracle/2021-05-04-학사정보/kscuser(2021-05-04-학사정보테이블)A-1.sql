@@ -80,11 +80,20 @@ SELECT ST.st_num AS 학번,
     FROM view_성적정보
     GROUP BY 학번
 );
-    ORDER BY 학번;
-    SELECT * FROM veiw_성적보고서
+
+
+
+    SELECT * FROM vIEw_성적보고서
     ORDER BY 학번;
     
-    SELECT * 
+    SELECT SC.학번,
+    ST.st_name AS 학생이름,
+    ST.st_tel AS 전화번호,
+    SC.국어점수, SC.수학점수, SC.영어점수
+    FROM view_성적보고서 SC
+    LEFT JOIN tbl_student ST
+    ON SC.학번 = ST.st_num;
+    
     
     
     
