@@ -105,3 +105,19 @@ CREATE VIEW view_섭취정보 AS (
 FROM tbl_myfoods MF 
  LEFT JOIN tbl_foods FD
 ON MF.eat_ccode = FD.fd_code) ;
+
+SELECT * FROM view_섭취정보;
+
+
+SELECT * FROM tbl_foods
+WHERE fd_name Like '%' || '고메' || '%' ;
+
+
+SELECT * FROM view_식품목록
+WHERE 상품명 LIKE '%' || '고메' || '%';
+
+CREATE SEQUENCE eat_seq
+START WITH 1
+INCREMENT BY 1;
+
+SELECT eat_seq.NEXTVAL FROM dual;

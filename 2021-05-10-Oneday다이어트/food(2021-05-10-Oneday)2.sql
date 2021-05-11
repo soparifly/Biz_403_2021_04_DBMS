@@ -29,6 +29,47 @@ FROM tbl_foods FD
         
 SELECT * FROM VIEW_상품정보
  ORDER BY cb_name;
+DROP VIEW view_식품목록;
+CREATE VIEW view_식품목록 AS (
 
+    SELECT
+    TI.cb_name 분류명,
+    CP.cp_name 회사명,
+    FD.fd_name 상품명,
+    FD.fd_order 회당제공량,
+    FD.fd_weight 총내용량,
+    FD.fd_kcal 칼로리,
+    FD.fd_dan 단백질,
+    FD.fd_gi 지방,
+    FD.fd_tan 탄수화물,
+    FD.fd_dang 당
+FROM tbl_foods FD
+ LEFT JOIN  tbl_company CP
+    ON FD.fd_ccode = CP.cp_code
+    LEFT JOIN tbl_items TI
+        on FD.fd_bcode = tI.cb_code
+        );
+        
+CREATE VIEW view_식품목록 AS (
+
+    SELECT
+    FD.fd_code 상품코드,
+    TI.cb_name 분류명,
+    CP.cp_name 회사명,
+    FD.fd_name 상품명,
+    FD.fd_order 회당제공량,
+    FD.fd_weight 총내용량,
+    FD.fd_kcal 칼로리,
+    FD.fd_dan 단백질,
+    FD.fd_gi 지방,
+    FD.fd_tan 탄수화물,
+    FD.fd_dang 당
+FROM tbl_foods FD
+ LEFT JOIN  tbl_company CP
+    ON FD.fd_ccode = CP.cp_code
+    LEFT JOIN tbl_items TI
+        on FD.fd_bcode = tI.cb_code
+        );
         
 
+SELECT * FROM tbl_myfoods;
