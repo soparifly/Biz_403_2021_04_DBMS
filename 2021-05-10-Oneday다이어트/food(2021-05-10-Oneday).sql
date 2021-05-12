@@ -121,3 +121,83 @@ START WITH 1
 INCREMENT BY 1;
 
 SELECT eat_seq.NEXTVAL FROM dual;
+
+
+--무결성 검사  NULL인 항목이 있는지없는지 
+SELECT *
+FROM tbl_foods F
+LEFT JOIN tbl_company C
+ ON F.fd_ccode = C.cp_code
+ WHERE C.cp_code IS NULL;
+ 
+ CREATE VIEW view_식품정보 AS
+ (
+    SELECT
+    fd_code	식품코드,
+    fd_name	식품명,
+    fd_birth	출시연도,
+    fd_ccode	제조사코드,
+    fd_bcode	분류코드,
+    fd_order	제공량,
+    fd_weight	총내용량,
+    fd_kcal	에너지,
+    fd_dan	단백질,
+    fd_gi	지방,
+    fd_tan	탄수화물,
+    fd_dang	총당류,
+    cp_name	제조사명,
+    cb_name	분류명
+
+FROM tbl_foods
+    LEFT JOIN tbl_company
+    on fd_code = cp_code
+    LEFT JOIN tbl_items
+    ON fd_ccode = cb_code
+    ); 
+
+SELECT 
+
+eat_seq	일련번호,
+eat_date	날짜,
+eat_ccode	식품코드,
+eat_order	섭취량,
+식품코드,
+    식품명,
+    출시연도,
+    제조사코드,
+    분류코드,
+    제공량,
+    총내용량,
+    에너지,
+    단백질,
+    지방,
+    탄수화물,
+    총당류,
+    제조사명,
+    분류명
+FROM tbl_myfoods
+LEFT JOIN view_식품정보
+ON eat_ccode = 식품코드;
+
+CREATE VIEW view_섭취량계산 AS (
+SELECT 
+    eat_date	날짜,
+    eat_ccode	식품코드,
+    식품코드,
+    식품명,
+    eat_order	섭취량,
+    제공량 * eat_order as 제공량,
+    총내용량 * eat_order as 총내용량,
+    에너지 * eat_order as 에너지,
+    단백질 * eat_order as 단백질,
+    지방 * eat_order as 지방,
+    탄수화물 * eat_order as 탄수화물,
+    총당류 * eat_order as 총당류
+   
+FROM tbl_myfoods
+LEFT JOIN view_식품정보
+ON eat_ccode = 식품코드
+);
+
+
+
