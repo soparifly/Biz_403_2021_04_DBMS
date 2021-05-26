@@ -87,7 +87,7 @@ gb_seq '일련번호',
 gb_date '등록일자',
 gb_time '등록시간',
 gb_writer '등록자이름',
-gb_email '등록이메일',view_방명록view_방명록
+gb_email '등록이메일',
 gb_password '비밀번호',
 gb_content '내용'
 from tbl_guest_book
